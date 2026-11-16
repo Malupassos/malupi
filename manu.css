@@ -1,7 +1,7 @@
 /* ===== Cores e configurações gerais ===== */
 /* Para mudar as cores do site, edite só as variáveis abaixo */
 :root {
-    --azul-escuro: #346596;
+    --azul-escuro: #1f3d5c;
     --azul: #3d7bb5;
     --azul-medio: #8fbbe3;
     --azul-claro: #e3effa;
@@ -9,7 +9,6 @@
     --branco: #ffffff;
     --texto: #24425e;
     --detalhe: #cfe3f5;
-    --areia: #e9c9b0;
 }
 
 * {
@@ -56,7 +55,7 @@ a {
     gap: 1rem;
     flex-wrap: wrap;
     padding: .8rem clamp(1rem, 5vw, 3rem);
-    background: rgba(22, 60, 98, 0.96);
+    background: rgba(31, 61, 92, 0.96);
     box-shadow: 0 3px 12px rgba(31, 61, 92, .12);
 }
 
@@ -69,7 +68,7 @@ a {
 
 .topo nav {
     display: flex;
-    gap: .35rem;
+    gap: .2rem;
     flex-wrap: wrap;
 }
 
@@ -77,7 +76,8 @@ a {
     color: #eef6ff;
     text-decoration: none;
     font-weight: 500;
-    padding: .4rem .85rem;
+    font-size: .9rem;
+    padding: .35rem .75rem;
     border-radius: 999px;
     transition: background .2s, color .2s;
 }
@@ -117,8 +117,23 @@ h3 {
     margin-bottom: 2rem;
 }
 
+/* seção com fundo azul clarinho */
 .faixa {
     background: var(--azul-claro);
+}
+
+/* seção com fundo azul escuro */
+.escura {
+    background: linear-gradient(135deg, var(--azul-escuro), #4f7ea8);
+    color: var(--branco);
+}
+
+.escura h2 {
+    color: var(--branco);
+}
+
+.escura .intro {
+    color: #e3effa;
 }
 
 /* ===== Botões ===== */
@@ -203,10 +218,9 @@ h3 {
 }
 
 .frase {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-style: italic;
-    margin-bottom: 1rem;
-    color: var(--detalhe);
+    margin-bottom: .8rem;
 }
 
 .lead {
@@ -257,22 +271,13 @@ h3 {
     transform: scale(1.12) rotate(-4deg);
 }
 
-/* ===== Quem sou eu ===== */
+/* ===== Sobre mim ===== */
 
 #sobre h2 {
     text-align: left;
 }
 
 #sobre .intro {
-    max-width: 1050px;
-    margin: 0 auto 2rem;
-}
-
-#universos h2 {
-    text-align: left;
-}
-
-#universos .intro {
     max-width: 1050px;
     margin: 0 auto 2rem;
 }
@@ -309,7 +314,7 @@ h3 {
     padding: 1.2rem 1.4rem 1.5rem;
 }
 
-/* ===== Curiosidades ===== */
+/* ===== Curiosidades e lifestyle ===== */
 
 #curiosidades h2 {
     text-align: left;
@@ -320,59 +325,101 @@ h3 {
     margin: 0 auto 2rem;
 }
 
-.curiosidades {
+.dica {
+    font-size: .85rem;
+    font-weight: 500;
+    color: var(--azul);
+    margin-bottom: .3rem;
+}
+
+/* faixa de fotos soltas que rola para o lado */
+.fotos-soltas {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    overflow-x: auto;
+    padding: 1rem .6rem 1.6rem;
+    scroll-snap-type: x proximity;
+    scrollbar-color: var(--azul-medio) transparent;
+}
+
+.solta {
+    flex: none;
+    margin: 0;
+    padding: 6px;
+    background: var(--branco);
+    border-radius: 8px;
+    box-shadow: 0 6px 16px rgba(31, 61, 92, .16);
+    scroll-snap-align: center;
+    transition: transform .25s;
+}
+
+.solta img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* quatro tamanhos de foto */
+.solta.alta     { width: 230px; height: 330px; }
+.solta.larga    { width: 340px; height: 230px; }
+.solta.quadrada { width: 250px; height: 250px; }
+.solta.pequena  { width: 170px; height: 170px; }
+
+/* inclinação e posição diferentes em cada foto */
+.solta:nth-child(odd)  { transform: rotate(-1.5deg); }
+.solta:nth-child(even) { transform: rotate(1.5deg); }
+
+.solta:nth-child(3n + 1) { align-self: flex-start; }
+.solta:nth-child(3n + 2) { align-self: center; }
+.solta:nth-child(3n)     { align-self: flex-end; }
+
+.solta:hover {
+    transform: rotate(0) scale(1.03);
+}
+
+/* curiosidades em forma de bilhetinhos */
+.bilhetes {
     list-style: none;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 1rem;
+    gap: 1.6rem 1.2rem;
+    margin-top: 1.5rem;
 }
 
-.curiosidades li {
-    display: flex;
-    align-items: center;
-    gap: .8rem;
-    background: var(--fundo);
-    border: 1px solid var(--detalhe);
-    border-radius: 15px;
-    padding: 1rem 1.1rem;
-    font-weight: 500;
-    transition: transform .2s, background .2s;
-}
-
-.curiosidades li:hover {
-    transform: translateY(-3px);
+.bilhetes li {
+    position: relative;
     background: var(--branco);
+    border: 1px solid var(--detalhe);
+    border-radius: 6px;
+    padding: 1.5rem 1.2rem 1.2rem;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(31, 61, 92, .10);
+    transition: transform .2s;
 }
 
-.curiosidades span {
-    font-size: 1.5rem;
-    line-height: 1;
+/* fitinha no topo de cada bilhete */
+.bilhetes li::before {
+    content: "";
+    position: absolute;
+    top: -9px;
+    left: 50%;
+    width: 64px;
+    height: 18px;
+    margin-left: -32px;
+    background: rgba(143, 187, 227, .65);
+    transform: rotate(-3deg);
 }
 
-/* ===== Lifestyle (Faixa horizontal rolável) ===== */
-.faixa-lifestyle {
-    display: flex;
-    gap: 1rem;
-    overflow-x: auto;
-    padding-bottom: .8rem;
-    scroll-snap-type: x mandatory;
+.bilhetes li:nth-child(odd)  { transform: rotate(-1deg); }
+.bilhetes li:nth-child(even) { transform: rotate(1deg); }
+
+.bilhetes li:hover {
+    transform: rotate(0) translateY(-3px);
 }
 
-.faixa-lifestyle img {
-    flex: 0 0 220px;
-    height: 280px;
-    object-fit: cover;
-    border-radius: 14px;
-    border: 3px solid var(--detalhe);
-    scroll-snap-align: start;
-    transition: transform .3s;
-}
-
-.faixa-lifestyle img:hover {
-    transform: scale(1.03);
-}
-
-/* ===== Lugares e Viagens ===== */
+/* ===== Minhas viagens ===== */
 
 #viagens h2 {
     text-align: left;
@@ -383,7 +430,75 @@ h3 {
     margin: 0 auto 2rem;
 }
 
-.p-quero {
+.destinos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.4rem;
+}
+
+.destino {
+    display: block;
+    text-decoration: none;
+    padding: .8rem .8rem 1.2rem;
+    background: var(--branco);
+    border: 1px solid var(--detalhe);
+    border-radius: 18px;
+    transition: transform .2s, box-shadow .2s;
+}
+
+.destino:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 24px rgba(31, 61, 92, .14);
+}
+
+/* três fotos juntas: uma grande e duas pequenas */
+.colagem {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 6px;
+    aspect-ratio: 1;
+}
+
+.colagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.colagem img:first-child {
+    grid-row: span 2;
+}
+
+.destino-nome {
+    display: block;
+    margin-top: .9rem;
+    padding: 0 .3rem;
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--azul-escuro);
+}
+
+.destino-link {
+    display: block;
+    padding: 0 .3rem;
+    font-size: .85rem;
+    color: var(--azul);
+}
+
+/* ===== Lugares que quero conhecer ===== */
+
+#quero-conhecer h2 {
+    text-align: left;
+}
+
+#quero-conhecer .intro {
+    max-width: 1050px;
+    margin: 0 auto 2rem;
+}
+
+.lugares {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
     gap: 1.1rem;
@@ -391,6 +506,7 @@ h3 {
 
 .lugar {
     position: relative;
+    display: block;
     overflow: hidden;
     aspect-ratio: 3 / 4;
     border-radius: 16px;
@@ -420,15 +536,49 @@ h3 {
     transform: scale(1.08);
 }
 
+/* ===== Universos dos quais eu faria parte ===== */
+
+#universos h2 {
+    text-align: left;
+}
+
+#universos .intro {
+    max-width: 1050px;
+    margin: 0 auto 2rem;
+}
+
+.universos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.3rem;
+}
+
+.universo {
+    background: var(--branco);
+    color: var(--texto);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform .2s;
+}
+
+.universo:hover {
+    transform: translateY(-4px);
+}
+
+.universo img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+}
+
+.universo div {
+    padding: 1.1rem 1.3rem 1.4rem;
+}
+
 /* ===== Filmes ===== */
 
 #filmes h2 {
     text-align: left;
-}
-
-#filmes .intro {
-    max-width: 1050px;
-    margin: 0 auto 2rem;
 }
 
 .filmes {
@@ -494,13 +644,13 @@ h3 {
     font-size: .85rem;
 }
 
-/* ===== Galeria: amigos e família ===== */
+/* ===== Amigos e família ===== */
 
-#familia h2 {
+#amigos h2 {
     text-align: left;
 }
 
-#familia .intro {
+#amigos .intro {
     max-width: 1050px;
     margin: 0 auto 2rem;
 }
@@ -519,6 +669,7 @@ h3 {
     border-radius: 14px;
 }
 
+/* foto alta ocupa 2 linhas, foto larga ocupa 2 colunas */
 .galeria .alta  { grid-row: span 2; }
 .galeria .larga { grid-column: span 2; }
 
@@ -637,6 +788,11 @@ h3 {
         grid-template-columns: repeat(2, 1fr);
         grid-auto-rows: 170px;
     }
+
+    .solta.alta     { width: 190px; height: 280px; }
+    .solta.larga    { width: 270px; height: 190px; }
+    .solta.quadrada { width: 210px; height: 210px; }
+    .solta.pequena  { width: 150px; height: 150px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

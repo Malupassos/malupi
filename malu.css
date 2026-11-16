@@ -1,13 +1,13 @@
 /* ===== Cores e configurações gerais ===== */
 :root {
-    --verde-escuro: #085c1d;
-    --verde: #2b8134;
-    --verde-medio: #70E47A;
-    --verde-claro: #DDF9D9;
-    --fundo: #F5FFF3;
+    --verde-escuro: #448664;
+    --verde: #2b8152;
+    --verde-medio: #70e49e;
+    --verde-claro: #d9f9e6;
+    --fundo: #f3fff8;
     --branco: #ffffff;
-    --texto: #0f561d;
-    --detalhe: #B8F0B4;
+    --texto: #0f5636;
+    --detalhe: #b4f0d0;
 }
 
 * {
@@ -54,7 +54,7 @@ a {
     gap: 1rem;
     flex-wrap: wrap;
     padding: .8rem clamp(1rem, 5vw, 3rem);
-    background: rgba(15, 83, 43, 0.96);
+    background: rgba(10, 94, 52, 0.96);
     box-shadow: 0 3px 12px rgba(36, 75, 58, .10);
 }
 
@@ -324,6 +324,107 @@ h3 {
     line-height: 1;
 }
 
+/* Memórias favoritas - página da Malu (mesmas cores do malu.css) */
+
+.memorias {
+  --m-verde-escuro: #085c33;
+  --m-verde: #2b8157;
+  --m-verde-claro: #ddf9d9;
+  --m-borda: #d5efd1;
+
+  max-width: none;
+  padding: clamp(3rem, 7vw, 5rem) clamp(1rem, 6vw, 4rem);
+  background: #ffffff;
+  color: var(--m-verde-escuro);
+  font-family: "Poppins", sans-serif;
+  line-height: 1.7;
+}
+
+.memorias * {
+  box-sizing: border-box;
+}
+
+/* título e frase de introdução */
+.memorias > h2,
+.memorias > .memorias-intro,
+.memorias > .memorias-grade {
+  max-width: 1050px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.memorias > h2 {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--m-verde-escuro);
+}
+
+.memorias > .memorias-intro {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  max-width: 1050px;
+}
+
+/* grade das fotos */
+.memorias-grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 2.2rem 1.6rem;
+  padding-top: 0.5rem;
+}
+
+/* cada foto estilo polaroid */
+.polaroid {
+  margin: 0;
+  padding: 0.8rem 0.8rem 1.2rem;
+  background: #ffffff;
+  border: 1px solid var(--m-borda);
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(36, 75, 58, 0.14);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.polaroid img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 4px;
+  background: var(--m-verde-claro);
+}
+
+.polaroid figcaption {
+  padding-top: 0.9rem;
+  text-align: center;
+}
+
+.polaroid h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.05rem;
+  color: var(--m-verde-escuro);
+}
+
+.polaroid p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* cada foto com uma inclinação diferente */
+.polaroid:nth-child(3n + 1) { transform: rotate(-2deg); }
+.polaroid:nth-child(3n + 2) { transform: rotate(1.5deg); }
+.polaroid:nth-child(3n)     { transform: rotate(-0.8deg); }
+
+.polaroid:hover {
+  transform: rotate(0) scale(1.05);
+  box-shadow: 0 14px 28px rgba(36, 75, 58, 0.22);
+  position: relative;
+  z-index: 2;
+}
+
 /* ===== Livros ===== */
 .livros {
     list-style: none;
@@ -512,6 +613,14 @@ h3 {
 }
 
 /* ===== Ajustes para celular ===== */
+
+@media (max-width: 560px) {
+  .memorias > .memorias-grade {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+  }
+}
+
 @media (max-width: 760px) {
     .hero {
         grid-template-columns: 1fr;
@@ -562,4 +671,8 @@ h3 {
     * {
         transition: none !important;
     }
+
+    .polaroid {
+    transition: none;
+  }
 }

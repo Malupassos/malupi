@@ -217,12 +217,6 @@ h3 {
     margin-bottom: 1rem;
 }
 
-.frase {
-    font-size: 1.2rem;
-    font-style: italic;
-    margin-bottom: .8rem;
-}
-
 .lead {
     font-size: 1.05rem;
     color: #e3effa;
@@ -269,49 +263,6 @@ h3 {
 
 .foto-redonda:hover {
     transform: scale(1.12) rotate(-4deg);
-}
-
-/* ===== Sobre mim ===== */
-
-#sobre h2 {
-    text-align: left;
-}
-
-#sobre .intro {
-    max-width: 1050px;
-    margin: 0 auto 2rem;
-}
-
-.historias {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.3rem;
-}
-
-.historia {
-    display: flex;
-    flex-direction: column;
-    background: var(--branco);
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid var(--detalhe);
-    transition: transform .2s, box-shadow .2s;
-}
-
-.historia:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 9px 22px rgba(31, 61, 92, .12);
-}
-
-.historia img {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    object-position: center 30%;
-}
-
-.historia div {
-    padding: 1.2rem 1.4rem 1.5rem;
 }
 
 /* ===== Curiosidades e lifestyle ===== */
@@ -366,14 +317,6 @@ h3 {
 .solta.larga    { width: 340px; height: 230px; }
 .solta.quadrada { width: 250px; height: 250px; }
 .solta.pequena  { width: 170px; height: 170px; }
-
-/* inclinação e posição diferentes em cada foto */
-.solta:nth-child(odd)  { transform: rotate(-1.5deg); }
-.solta:nth-child(even) { transform: rotate(1.5deg); }
-
-.solta:nth-child(3n + 1) { align-self: flex-start; }
-.solta:nth-child(3n + 2) { align-self: center; }
-.solta:nth-child(3n)     { align-self: flex-end; }
 
 .solta:hover {
     transform: rotate(0) scale(1.03);
@@ -493,11 +436,6 @@ h3 {
     text-align: left;
 }
 
-#quero-conhecer .intro {
-    max-width: 1050px;
-    margin: 0 auto 2rem;
-}
-
 .lugares {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
@@ -540,11 +478,6 @@ h3 {
 
 #universos h2 {
     text-align: left;
-}
-
-#universos .intro {
-    max-width: 1050px;
-    margin: 0 auto 2rem;
 }
 
 .universos {
@@ -638,10 +571,6 @@ h3 {
     letter-spacing: 2px;
     color: var(--azul);
     margin-bottom: .3rem;
-}
-
-.filmes p {
-    font-size: .85rem;
 }
 
 /* ===== Amigos e família ===== */

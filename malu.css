@@ -324,6 +324,26 @@ h3 {
     line-height: 1;
 }
 
+/* fitinha no topo de cada bilhete */
+.curiosidades li::before {
+    content: "";
+    position: absolute;
+    top: -9px;
+    left: 50%;
+    width: 64px;
+    height: 18px;
+    margin-left: -32px;
+    background: rgba(42, 170, 132, 0.65);
+    transform: rotate(-3deg);
+}
+
+.curiosidades li:nth-child(odd)  { transform: rotate(-1deg); }
+.curiosidades li:nth-child(even) { transform: rotate(1deg); }
+
+.curiosidades li:hover {
+    transform: rotate(0) translateY(-3px);
+}
+
 /* Memórias favoritas - página da Malu (mesmas cores do malu.css) */
 
 .memorias {

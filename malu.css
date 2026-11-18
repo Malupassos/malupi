@@ -281,9 +281,10 @@ h3 {
 
 .historia img {
     width: 100%;
-    height: auto;
-    object-fit: initial;
-    background: none;
+    height: 450px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
 }
 
 .historia div {
@@ -500,6 +501,9 @@ h3 {
 /* ===== Lugares: abas ===== */
 .abas {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .abas input {
@@ -514,7 +518,7 @@ h3 {
     width: min(100%, 440px);
     padding: 5px;
     gap: 5px;
-    margin-bottom: 1.7rem;
+    margin-bottom: 2rem;
     background: #DDF9D9;
     border: 1px solid #B8EAB3;
     border-radius: 999px;
@@ -551,9 +555,35 @@ h3 {
 
 .painel {
     display: none;
-    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.1rem;
 }
+ 
+.grid-ativo {
+    display: grid !important;
+    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.1rem;
+}
+
+.bloco-conteudo {
+    background: var(--branco);
+    border-radius: 20px;
+    padding: 2.5rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 10px 30px rgba(75, 216, 162, 0.08);
+    border: 1px solid var(--verde-claro);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+ 
+.bloco-header {
+    border-bottom: 2px dashed var(--detalhe);
+    padding-bottom: 1rem;
+}
+
 
 #aba-quero:checked ~ .p-quero,
 #aba-conheco:checked ~ .p-conheco {
@@ -634,10 +664,15 @@ h3 {
 
 /* ===== Ajustes para celular ===== */
 
-@media (max-width: 560px) {
+@media (max-width: 550px) {
   .memorias > .memorias-grade {
     grid-template-columns: 1fr;
     max-width: 320px;
+  }
+  
+  .painel,
+  .grid-ativo {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -695,4 +730,11 @@ h3 {
     .polaroid {
     transition: none;
   }
+}
+
+@media (max-width: 900px) {
+    .painel,
+    .grid-ativo {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
